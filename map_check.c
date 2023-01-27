@@ -20,9 +20,9 @@ int	player_check3(char **map)
 		}
 		i++;
 	}
-	if (p_count == 1)
-		return (1);
-	return (wall_checker13(map) * 3);
+	if (p_count != 1)
+		return (wall_checker13(map) * 3);
+	return (wall_checker13(map));
 }
 
 int	exit_check5(char **map)
@@ -45,7 +45,7 @@ int	exit_check5(char **map)
 		i++;
 	}
 	if (e_count == 1)
-		return (1);
+		return (player_check3(map));
 	return (player_check3(map) * 5);
 }
 
@@ -69,7 +69,7 @@ int	is_it_rectangular7(char **map)
 			return (exit_check5(map) * 7);
 		i++;
 	}
-	return (1);
+	return (exit_check5(map));
 }
 
 int	char_check11(char **map)
@@ -92,7 +92,7 @@ int	char_check11(char **map)
 		}
 		i++;
 	}
-	return (1);
+	return (is_it_rectangular7(map));
 }
 
 int map_check(void)

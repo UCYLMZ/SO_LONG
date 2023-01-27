@@ -52,6 +52,7 @@ int	wall_checker13(char **map)
 	int len;
 	int	count;
 
+	//printf("%s\n", map[count - 1]);
 	len = t_map.line_length;
 	count = t_map.map_line_count;
 	i = 0;
@@ -78,17 +79,17 @@ void	error_messager(int result)
 	if (result != 1)
 		printf("Error\n");
 	if (result % 3 == 0)
-		printf("***There must be only one start point(P).\n");
+		printf("***The map must contain exactly one starting point(P).\n");
 	if (result % 5 == 0)
-		printf("***There must be only one exit point(E).\n");
+		printf("***The map must contain exactly one exit point(E).\n");
 	if (result % 7 == 0)
 		printf("***The map must be rectangular.\n");
 	if (result % 11 == 0)
-		printf("***The map must include only 1, 0, P, C, E characters.\n");
+		printf("***The map must contain only 1, 0, P, C, E characters.\n");
 	if (result % 13 == 0)
-		printf("***The map must be surrounded by walls.\n");
+		printf("***The map must be surrounded by walls correctly.\n");
 	if (result % 17 == 0)
-		printf("***There must be one colloctable at least(C).\n");
+		printf("***The map must contain at least one colloctable(C).\n");
 }
 
 /*int	path_checker(char **map)
