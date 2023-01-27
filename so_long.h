@@ -22,5 +22,9 @@ void	map_info(void);
 int		wall_checker13(char **map);
 void	error_messager(int result);
 char	*ft_strdup(const char *s1);
+int		path_checker(void);
+char	**map_duplicator(void);
+void	map_free(char **map);
+void	coins_free(int **arr);
 
 #endif

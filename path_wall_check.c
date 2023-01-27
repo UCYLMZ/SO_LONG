@@ -49,17 +49,44 @@ int	wall_checker13(char **map)
 	return (1);
 }
 
-/*int	path_checker(char **map)
+void	path_recursive(char **map, int col, int row)
 {
-	map = malloc(sizeof(char *) * (t_map.map_line_count + 1));
-	if (!map)
-		return (2);
-	i = 0;
-	while (t_map.map[i])
-	{
-		map[i] = ft_strdup(t_map.map[i]);
-		i++;
-	}
-	map[i] = NULL;
+	map[row][col] = '*';
+	if (map[row + 1][col] && map[row + 1][col] != '1' && map[row + 1][col] != '*')
+		path_recursive(map, col, row + 1);
+	if (map[row - 1][col] && map[row - 1][col] != '1' && map[row - 1][col] != '*')
+		path_recursive(map, col, row - 1);
+	if (map[row][col + 1] && map[row][col + 1] != '1' && map[row][col + 1] != '*')
+		path_recursive(map, col + 1, row);
+	if (map[row][col - 1] && map[row][col - 1] != '1' && map[row][col - 1] != '*')
+		path_recursive(map, col - 1, row);
+}
 
-}*/
+int	path_checker(void)
+{
+	char	**map;
+	int		row;
+	int		col;
+	int		j;
+	int		i;
+
+	row = t_map.plyr_row;
+	col = t_map.plyr_col;
+	map = map_duplicator();
+	path_recursive(map, col, row);
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (map[i][j] != '*' && map[i][j] != '\n' && map[i][j] != '1')
+			{
+				map_free (map);
+				return (2);
+			}
+		}
+	}
+	map_free (map);
+	return (1);
+}

@@ -48,8 +48,8 @@ void	coin_indexer(int col, int row, int till_coin)
 	t_map.coin_index[till_coin] = malloc (sizeof(int) * 2);
 	if (!t_map.coin_index[till_coin])
 		return ;
-	t_map.coin_index[till_coin][0] = col;
-	t_map.coin_index[till_coin][1] = row;
+	t_map.coin_index[till_coin][1] = col;
+	t_map.coin_index[till_coin][0] = row;
 }
 
 void	coin_handler(void)
@@ -112,7 +112,7 @@ void	map_info(void)
 /*int main ()
 {
 	map_info();
-	printf("plyr:%d, %d\nexit:%d, %d\ncoin:%d\n", t_map.plyr_col, t_map.plyr_row, t_map.exit_col, t_map.exit_row, t_map.coin_count);
+	printf("plyr:%d, %d\nexit:%d, %d\ncoin:%d\n", t_map.plyr_row, t_map.plyr_col, t_map.exit_row, t_map.exit_col, t_map.coin_count);
 	
 	//printf("coinindex:%d, %d\n", t_map.coin_index[0][0], t_map.coin_index[0][1]);
 	//printf("coinindex:%d, %d\n", t_map.coin_index[1][0], t_map.coin_index[1][1]);

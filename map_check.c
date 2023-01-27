@@ -106,8 +106,9 @@ int map_check(void)
 		coin_info17 = 17;
 	result = 1;
 	result *= char_check11(t_map.map) * coin_info17;
+	if (result % 13 != 0 && result % 7 != 0)
+		result *= path_checker();
 	error_messager(result);
-	printf("result:%d\n", result);
 	/*printf("plyr:%d\n", player_check3(t_map.map));
 	printf("exit:%d\n", exit_check5(t_map.map));
 	printf("rectangular:%d\n", is_it_rectangular7(t_map.map));

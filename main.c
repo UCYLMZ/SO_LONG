@@ -4,5 +4,8 @@
 int	main(void)
 {
 	map_info();
-	printf("\n%d", map_check());
+	printf("%d", map_check());
+	//map_free(t_map.map);
+	//coins_free (t_map.coin_index);
+	//system("leaks a.out");
 }
