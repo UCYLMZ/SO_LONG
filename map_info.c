@@ -9,13 +9,16 @@ int	map_line_count(void)
 
 	fd = open ("map.ber", O_RDONLY);
 	line = get_next_line(fd);
+	free (line);
 	count = 0;
 	while (line)
 	{
 		line = get_next_line(fd);
+		free (line);
 		count++;
 	}
 	close (fd);
+	free (line);
 	return (count);
 }
 

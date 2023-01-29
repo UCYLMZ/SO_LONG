@@ -15,7 +15,7 @@ int	side_wall_check(char **map)
 	i = 0;
 	while (map[i] && i < t_map.map_line_count)
 	{
-		if (map[i][t_map.line_length - 1] != '1')
+		if (map[i][t_map.shortest_line - 1] != '1')
 			return (0);
 		i++;
 	}
@@ -25,10 +25,10 @@ int	side_wall_check(char **map)
 int	wall_checker13(char **map)
 {
 	int	i;
-	int len;
+	int	len;
 	int	count;
 
-	len = t_map.line_length;
+	len = t_map.shortest_line;
 	count = t_map.map_line_count;
 	i = 0;
 	while (map[0][i] != '\n' && map[0][i] && i < len)
@@ -49,43 +49,45 @@ int	wall_checker13(char **map)
 	return (1);
 }
 
-void	path_recursive(char **map, int col, int row)
+void	path_recursive(char **map, int c, int r)
 {
-	map[row][col] = '*';
-	if (map[row + 1][col] && map[row + 1][col] != '1' && map[row + 1][col] != '*')
-		path_recursive(map, col, row + 1);
-	if (map[row - 1][col] && map[row - 1][col] != '1' && map[row - 1][col] != '*')
-		path_recursive(map, col, row - 1);
-	if (map[row][col + 1] && map[row][col + 1] != '1' && map[row][col + 1] != '*')
-		path_recursive(map, col + 1, row);
-	if (map[row][col - 1] && map[row][col - 1] != '1' && map[row][col - 1] != '*')
-		path_recursive(map, col - 1, row);
+	map[r][c] = '*';
+	if (map[r + 1][c] != 'E' && map[r + 1][c] != '1' && map[r + 1][c] != '*')
+		path_recursive(map, c, r + 1);
+	if (map[r - 1][c] != 'E' && map[r - 1][c] != '1' && map[r - 1][c] != '*')
+		path_recursive(map, c, r - 1);
+	if (map[r][c + 1] != 'E' && map[r][c + 1] != '1' && map[r][c + 1] != '*')
+		path_recursive(map, c + 1, r);
+	if (map[r][c - 1] != 'E' && map[r][c - 1] != '1' && map[r][c - 1] != '*')
+		path_recursive(map, c - 1, r);
 }
 
 int	path_checker(void)
 {
 	char	**map;
-	int		row;
-	int		col;
 	int		j;
 	int		i;
 
-	row = t_map.plyr_row;
-	col = t_map.plyr_col;
 	map = map_duplicator();
-	path_recursive(map, col, row);
+	path_recursive(map, t_map.plyr_col, t_map.plyr_row);
 	i = -1;
 	while (map[++i])
 	{
 		j = -1;
 		while (map[i][++j])
 		{
-			if (map[i][j] != '*' && map[i][j] != '\n' && map[i][j] != '1')
+			if (map[i][j] != '*' && map[i][j] != '\n' && map[i][j] != '1' &&
+			map[i][j] != 'E' && map[i][j] != '0')
 			{
 				map_free (map);
 				return (2);
 			}
 		}
+	}
+	i = 0;
+	while (map[i])
+	{
+		printf("%s", map[i++]);
 	}
 	map_free (map);
 	return (1);

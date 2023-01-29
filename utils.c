@@ -48,7 +48,7 @@ char	*ft_strdup(const char *s1)
 char	**map_duplicator(void)
 {
 	char	**copy;
-	int 	i;
+	int		i;
 
 	copy = malloc(sizeof(char *) * (t_map.map_line_count + 1));
 	if (!copy)
@@ -63,28 +63,22 @@ char	**map_duplicator(void)
 	return (copy);
 }
 
-void	map_free(char **map)
+void	shortest_line_func(char **map)
 {
 	int	i;
+	int	j;
+	int	len;
 
+	len = ft_strlen(map[0]);
 	i = 0;
 	while (map[i])
 	{
-		free (map[i]);
+		j = 0;
+		while (map[i][j] && map[i][j] != '\n')
+			j++;
+		if (j < len)
+			len = j;
 		i++;
 	}
-	free(map[i]);
-}
-
-void	coins_free(int **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free (arr[i]);
-		i++;
-	}
-	free (arr[i]);
+	t_map.shortest_line = len;
 }

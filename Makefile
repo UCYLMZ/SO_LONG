@@ -1,20 +1,22 @@
+
 NAME = so_long
 
-PRINTF_A = ./SRC/PRINTF/libftprintf.a
+SOURCES = main.c
 
-GNL_A = ./SRC/GET_NEXT_LINE/libftgnl.a
+CC = @gcc
 
-FLAGS = -Wall -Wextra -Werror
+OBJ = $(SRCS:.c=.o)
 
-CC = gcc
+RM  = rm -rf
 
-all: $(PRINTF_A) $(GNL_A)
+$(NAME): $(OBJ)
+	gcc $(SOURCES) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-$(PRINTF_A):
-	make -C ./SRC/PRINTF
+clean:
+	$(RM) *.o $(NAME)
 
-$(GNL_A):
-	make -C ./SRC/GET_NEXT_LINE
-
-
-
+fclean:
+	$(RM) *.o $(NAME)
+re:
+	make clean
+	make
