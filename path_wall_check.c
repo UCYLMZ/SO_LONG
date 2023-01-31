@@ -52,13 +52,13 @@ int	wall_checker13(char **map)
 void	path_recursive(char **map, int c, int r)
 {
 	map[r][c] = '*';
-	if (map[r + 1][c] != 'E' && map[r + 1][c] != '1' && map[r + 1][c] != '*')
+	if (map[r + 1][c] != '1' && map[r + 1][c] != '*')
 		path_recursive(map, c, r + 1);
-	if (map[r - 1][c] != 'E' && map[r - 1][c] != '1' && map[r - 1][c] != '*')
+	if (map[r - 1][c] != '1' && map[r - 1][c] != '*')
 		path_recursive(map, c, r - 1);
-	if (map[r][c + 1] != 'E' && map[r][c + 1] != '1' && map[r][c + 1] != '*')
+	if (map[r][c + 1] != '1' && map[r][c + 1] != '*')
 		path_recursive(map, c + 1, r);
-	if (map[r][c - 1] != 'E' && map[r][c - 1] != '1' && map[r][c - 1] != '*')
+	if (map[r][c - 1] != '1' && map[r][c - 1] != '*')
 		path_recursive(map, c - 1, r);
 }
 
@@ -76,8 +76,8 @@ int	path_checker(void)
 		j = -1;
 		while (map[i][++j])
 		{
-			if (map[i][j] != '*' && map[i][j] != '\n' && map[i][j] != '1' &&
-			map[i][j] != 'E' && map[i][j] != '0')
+			if (map[i][j] != '*' && map[i][j] != '\n' &&
+			map[i][j] != '1' && map[i][j] != '0')
 			{
 				map_free (map);
 				return (2);
