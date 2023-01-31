@@ -19,28 +19,31 @@ struct	s_map
 	int		coin_count;
 } t_map;
 
-typedef	struct	s_mlx
+typedef struct s_mlx
 {
-	char	*player_path;
-	char	*wall_path;
-	char	*coin_path;
-	char	*gate_path;
-	char	*floor_path;
+	char	*p_p;
+	char	*w_p;
+	char	*c_p;
+	char	*g_p;
+	char	*f_p;
 
 	int		x;
 	int		y;
 
-	char	*player;
-	char	*wall;
-	char	*coin;
-	char	*gate;
-	char	*floor;
+	int		x1;
+	int		y1;
+
+	char	*p;
+	char	*w;
+	char	*c;
+	char	*g;
+	char	*f;
 
 	int		a;
 	int		b;
 
 	void	*win;
-	void	*mlx_init;
+	void	*init;
 }	t_mlx;
 
 int		map_check(void);
@@ -53,5 +56,6 @@ char	**map_duplicator(void);
 void	map_free(char **map);
 void	coins_free(int **arr);
 void	shortest_line_func(char **map);
+int		ft_exit(t_mlx *mlx, int key);
 
 #endif

@@ -111,21 +111,3 @@ void	map_info(void)
 	}
 	coin_handler();
 }
-
-/*int main ()
-{
-	map_info();
-	printf("plyr:%d, %d\nexit:%d, %d\ncoin:%d\n", t_map.plyr_row, t_map.plyr_col, t_map.exit_row, t_map.exit_col, t_map.coin_count);
-	
-	//printf("coinindex:%d, %d\n", t_map.coin_index[0][0], t_map.coin_index[0][1]);
-	//printf("coinindex:%d, %d\n", t_map.coin_index[1][0], t_map.coin_index[1][1]);
-	//printf("coinindex:%d, %d\n", t_map.coin_index[2][0], t_map.coin_index[2][1]);
-	int i = 0;
-	while (t_map.coin_index[i])
-	{
-		printf("coinindex:%d, ", t_map.coin_index[i][0]);
-		printf("%d", t_map.coin_index[i][1]);
-		i++;
-		printf("#i:%d#\n", i);
-	}
-}*/

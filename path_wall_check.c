@@ -84,11 +84,6 @@ int	path_checker(void)
 			}
 		}
 	}
-	i = 0;
-	while (map[i])
-	{
-		printf("%s", map[i++]);
-	}
 	map_free (map);
 	return (1);
 }

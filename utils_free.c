@@ -25,3 +25,13 @@ void	coins_free(int **arr)
 	}
 	free (arr[i]);
 }
+
+int	ft_exit(t_mlx *mlx, int key)
+{
+	(void) key;
+	coins_free(t_map.coin_index);
+	map_free(t_map.map);
+	free (mlx);
+	system("leaks so_long");
+	exit(0);
+}
