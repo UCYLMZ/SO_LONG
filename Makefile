@@ -3,7 +3,7 @@ NAME = so_long
 
 SOURCES = main.c path_wall_check.c utils.c map_check.c \
 		  map_info.c ./SRC/GET_NEXT_LINE/libftgnl.a	   \
-		  utils_free.c
+		  utils_free.c movement.c
 
 CC = @gcc
 

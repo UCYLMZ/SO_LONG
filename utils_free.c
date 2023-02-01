@@ -13,25 +13,10 @@ void	map_free(char **map)
 	free(map[i]);
 }
 
-void	coins_free(int **arr)
+int	ft_exit(int key, t_mlx *mlx)
 {
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free (arr[i]);
-		i++;
-	}
-	free (arr[i]);
-}
-
-int	ft_exit(t_mlx *mlx, int key)
-{
-	(void) key;
-	coins_free(t_map.coin_index);
 	map_free(t_map.map);
-	free (mlx);
-	system("leaks so_long");
+	//free (mlx);
+	//system("leaks so_long");
 	exit(0);
 }

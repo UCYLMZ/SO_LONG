@@ -8,7 +8,6 @@
 struct	s_map
 {
 	char	**map;
-	int		**coin_index;
 	int		map_line_count;
 	int		line_length;
 	int		shortest_line;
@@ -17,6 +16,7 @@ struct	s_map
 	int		exit_col;
 	int		exit_row;
 	int		coin_count;
+	int		current_coin;
 } t_map;
 
 typedef struct s_mlx
@@ -32,6 +32,9 @@ typedef struct s_mlx
 
 	int		x1;
 	int		y1;
+
+	int p_col;
+	int p_row;
 
 	char	*p;
 	char	*w;
@@ -54,8 +57,9 @@ char	*ft_strdup(const char *s1);
 int		path_checker(void);
 char	**map_duplicator(void);
 void	map_free(char **map);
-void	coins_free(int **arr);
 void	shortest_line_func(char **map);
-int		ft_exit(t_mlx *mlx, int key);
+int		ft_exit(int key, t_mlx *mlx);
+int	ft_movement(int key, t_mlx *mlx);
+void	put_img(t_mlx *mlx, char **map);
 
 #endif

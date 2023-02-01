@@ -46,43 +46,6 @@ char	**get_map(void)
 	return (t_map.map);
 }
 
-void	coin_indexer(int col, int row, int till_coin)
-{
-	t_map.coin_index[till_coin] = malloc (sizeof(int) * 2);
-	if (!t_map.coin_index[till_coin])
-		return ;
-	t_map.coin_index[till_coin][1] = col;
-	t_map.coin_index[till_coin][0] = row;
-}
-
-void	coin_handler(void)
-{
-	int		col;
-	int		row;
-	int		till_coin;
-
-	t_map.coin_index = malloc(sizeof(int *) * (t_map.coin_count + 1));
-	if (!t_map.coin_index)
-		return ;
-	till_coin = 0;
-	row = 0;
-	while (t_map.map[row])
-	{
-		col = 0;
-		while (t_map.map[row][col])
-		{
-			if (t_map.map[row][col] == 'C')
-			{
-				coin_indexer(col, row, till_coin);
-				till_coin++;
-			}
-			col++;
-		}
-		row++;
-	}
-	t_map.coin_index[till_coin] = NULL;
-}
-
 void	map_info(void)
 {
 	int	i;
@@ -109,5 +72,4 @@ void	map_info(void)
 				t_map.coin_count++;
 		}
 	}
-	coin_handler();
 }
