@@ -22,6 +22,29 @@ int	map_line_count(void)
 	return (count);
 }
 
+void	gate_finder(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'E')
+			{
+				t_map.gate_col = j;
+				t_map.gate_row = i;
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
 char	**get_map(void)
 {
 	char	*line;
@@ -43,6 +66,8 @@ char	**get_map(void)
 	}
 	close(fd);
 	t_map.map[i] = NULL;
+	gate_finder(t_map.map);
+	printf("%d,%d\n", t_map.gate_col, t_map.gate_row);
 	return (t_map.map);
 }
 

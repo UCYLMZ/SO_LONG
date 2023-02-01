@@ -72,5 +72,7 @@ int	ft_movement(int key, t_mlx *mlx)
 		move_up(mlx, t_map.map, &step);
 	else if (key == 53)
 		ft_exit(17, mlx);
+	if (t_map.gate_col != t_map.plyr_col || t_map.gate_row != t_map.plyr_row)
+		t_map.map[t_map.gate_row][t_map.gate_col] = 'E';
 	return (0);
 }

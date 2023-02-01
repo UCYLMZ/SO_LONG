@@ -15,6 +15,8 @@ struct	s_map
 	int		plyr_row;
 	int		exit_col;
 	int		exit_row;
+	int		gate_col;
+	int		gate_row;
 	int		coin_count;
 	int		current_coin;
 } t_map;
@@ -26,6 +28,7 @@ typedef struct s_mlx
 	char	*c_p;
 	char	*g_p;
 	char	*f_p;
+	char	*m_p;
 
 	int		x;
 	int		y;
@@ -41,6 +44,7 @@ typedef struct s_mlx
 	char	*c;
 	char	*g;
 	char	*f;
+	char	*m;
 
 	int		a;
 	int		b;

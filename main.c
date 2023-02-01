@@ -8,11 +8,13 @@ void	xpm_to_img(t_mlx *map)
 	map->c_p = "./img/coin.xpm";
 	map->g_p = "./img/gate.xpm";
 	map->f_p = "./img/floor.xpm";
+	map->m_p = "./img/player+gate.xpm";
 	map->w = mlx_xpm_file_to_image(map->init, map->w_p, &map->x, &map->y);
 	map->p = mlx_xpm_file_to_image(map->init, map->p_p, &map->x, &map->y);
 	map->c = mlx_xpm_file_to_image(map->init, map->c_p, &map->x, &map->y);
 	map->g = mlx_xpm_file_to_image(map->init, map->g_p, &map->x, &map->y);
 	map->f = mlx_xpm_file_to_image(map->init, map->f_p, &map->x, &map->y);
+	map->m = mlx_xpm_file_to_image(map->init, map->m_p, &map->x, &map->y);
 }
 
 void	img_printer(t_mlx *mlx, char c)
@@ -23,7 +25,18 @@ void	img_printer(t_mlx *mlx, char c)
 	if (c == 'C')
 		mlx_put_image_to_window(mlx->init, mlx->win, mlx->c, mlx->x1, mlx->y1);
 	if (c == 'E')
+	{
+		/*if (t_map.gate_col == t_map.plyr_col && t_map.gate_row == t_map.plyr_row)
+			mlx_put_image_to_window(mlx->init, mlx->win, mlx->m, mlx->x1, mlx->y1);
+		else*/
 		mlx_put_image_to_window(mlx->init, mlx->win, mlx->g, mlx->x1, mlx->y1);
+	}
+	if (c == 'P')
+	{
+		mlx_put_image_to_window(mlx->init, mlx->win, mlx->p, mlx->x1, mlx->y1);
+		if (t_map.gate_col == t_map.plyr_col && t_map.gate_row == t_map.plyr_row)
+			mlx_put_image_to_window(mlx->init, mlx->win, mlx->m, mlx->x1, mlx->y1);
+	}
 }
 
 void	put_img(t_mlx *mlx, char **map)
@@ -50,7 +63,6 @@ void	put_img(t_mlx *mlx, char **map)
 		mlx->y1 += 128;
 		i += 1;
 	}
-	mlx_put_image_to_window(mlx->init, mlx->win, mlx->p, x, y);
 }
 
 void mlx_filler(t_mlx *mlx)
