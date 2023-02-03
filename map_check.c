@@ -67,6 +67,8 @@ int	is_it_rectangular7(char **map)
 			j++;
 		if (j != length)
 			return (exit_check5(map) * 7);
+		if (map[t_map.map_line_count - 1][length] == '\n')
+			return (exit_check5(map) * 7);
 		i++;
 	}
 	return (exit_check5(map));

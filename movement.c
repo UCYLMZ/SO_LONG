@@ -11,7 +11,6 @@ void move_left(t_mlx *mlx, char **map, int *step)
 		map[t_map.plyr_row][t_map.plyr_col - 1] = 'P';
 		t_map.plyr_col--;
 		printf("step: %d\n", ++(*step));
-		put_img(mlx, map);
 	}
 }
 
@@ -25,7 +24,6 @@ void move_right(t_mlx *mlx, char **map, int *step)
 		map[t_map.plyr_row][t_map.plyr_col + 1] = 'P';
 		t_map.plyr_col++;
 		printf("step: %d\n", ++(*step));
-		put_img(mlx, map);
 	}
 }
 
@@ -39,7 +37,6 @@ void move_down(t_mlx *mlx, char **map, int *step)
 		map[t_map.plyr_row + 1][t_map.plyr_col] = 'P';
 		t_map.plyr_row++;
 		printf("step: %d\n", ++(*step));
-		put_img(mlx, map);
 	}
 }
 
@@ -53,7 +50,6 @@ void move_up(t_mlx *mlx, char **map, int *step)
 		map[t_map.plyr_row - 1][t_map.plyr_col] = 'P';
 		t_map.plyr_row--;
 		printf("step: %d\n", ++(*step));
-		put_img(mlx, map);
 	}
 }
 
@@ -62,6 +58,8 @@ int	ft_movement(int key, t_mlx *mlx)
 {
 	static int	step;
 
+	if (key != 0 && key != 2 && key !=1 && key != 13 && key != 53)
+		return (1);
 	if (key == 0)
 		move_left(mlx, t_map.map, &step);
 	else if (key == 2)
@@ -74,5 +72,6 @@ int	ft_movement(int key, t_mlx *mlx)
 		ft_exit(17, mlx);
 	if (t_map.gate_col != t_map.plyr_col || t_map.gate_row != t_map.plyr_row)
 		t_map.map[t_map.gate_row][t_map.gate_col] = 'E';
+	put_img(mlx, t_map.map);
 	return (0);
 }

@@ -18,7 +18,6 @@ int	map_line_count(void)
 		count++;
 	}
 	close (fd);
-	free (line);
 	return (count);
 }
 
@@ -67,7 +66,6 @@ char	**get_map(void)
 	close(fd);
 	t_map.map[i] = NULL;
 	gate_finder(t_map.map);
-	printf("%d,%d\n", t_map.gate_col, t_map.gate_row);
 	return (t_map.map);
 }
 

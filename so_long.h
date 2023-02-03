@@ -63,7 +63,8 @@ char	**map_duplicator(void);
 void	map_free(char **map);
 void	shortest_line_func(char **map);
 int		ft_exit(int key, t_mlx *mlx);
-int	ft_movement(int key, t_mlx *mlx);
+int		ft_movement(int key, t_mlx *mlx);
 void	put_img(t_mlx *mlx, char **map);
+void 	mlx_filler(t_mlx *mlx);
 
 #endif
