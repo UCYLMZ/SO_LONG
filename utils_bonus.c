@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	error_messager(int result)
 {
@@ -13,7 +13,7 @@ void	error_messager(int result)
 	if (result % 7 == 0)
 		ft_putstr("***The map must be rectangular.\n");
 	if (result % 11 == 0)
-		ft_putstr("***The map must contain only 1, 0, P, C, E characters.\n");
+		ft_putstr("***The map must contain only 1, 0, P, C, E, X characters.\n");
 	if (result % 13 == 0)
 		ft_putstr("***The map must be surrounded by walls correctly.\n");
 	if (result % 17 == 0)

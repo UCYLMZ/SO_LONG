@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	map_free(char **map)
 {
@@ -16,5 +16,5 @@ void	map_free(char **map)
 int	ft_exit(int key, t_mlx *mlx)
 {
 	map_free(t_map.map);
-	exit(0);
+	exit (0);
 }

@@ -1,5 +1,4 @@
 #include "so_long.h"
-#include <stdio.h>
 
 void move_left(t_mlx *mlx, char **map, int *step)
 {
@@ -10,7 +9,9 @@ void move_left(t_mlx *mlx, char **map, int *step)
 		map[t_map.plyr_row][t_map.plyr_col] = '0';
 		map[t_map.plyr_row][t_map.plyr_col - 1] = 'P';
 		t_map.plyr_col--;
-		printf("step: %d\n", ++(*step));
+		ft_putstr("step:");
+		ft_putnbr(++(*step));
+		ft_putstr("\n");
 	}
 }
 
@@ -23,7 +24,9 @@ void move_right(t_mlx *mlx, char **map, int *step)
 		map[t_map.plyr_row][t_map.plyr_col] = '0';
 		map[t_map.plyr_row][t_map.plyr_col + 1] = 'P';
 		t_map.plyr_col++;
-		printf("step: %d\n", ++(*step));
+		ft_putstr("step:");
+		ft_putnbr(++(*step));
+		ft_putstr("\n");
 	}
 }
 
@@ -36,7 +39,9 @@ void move_down(t_mlx *mlx, char **map, int *step)
 		map[t_map.plyr_row][t_map.plyr_col] = '0';
 		map[t_map.plyr_row + 1][t_map.plyr_col] = 'P';
 		t_map.plyr_row++;
-		printf("step: %d\n", ++(*step));
+		ft_putstr("step:");
+		ft_putnbr(++(*step));
+		ft_putstr("\n");
 	}
 }
 
@@ -49,7 +54,9 @@ void move_up(t_mlx *mlx, char **map, int *step)
 		map[t_map.plyr_row][t_map.plyr_col] = '0';
 		map[t_map.plyr_row - 1][t_map.plyr_col] = 'P';
 		t_map.plyr_row--;
-		printf("step: %d\n", ++(*step));
+		ft_putstr("step:");
+		ft_putnbr(++(*step));
+		ft_putstr("\n");
 	}
 }
 

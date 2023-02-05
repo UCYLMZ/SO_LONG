@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	map_line_count(void)
 {
@@ -6,7 +6,7 @@ int	map_line_count(void)
 	char	*line;
 	int		count;
 
-	fd = open ("map.ber", O_RDONLY);
+	fd = open ("map_bonus.ber", O_RDONLY);
 	line = get_next_line(fd);
 	free (line);
 	count = 0;
@@ -35,7 +35,11 @@ void	gate_finder(char **map)
 			{
 				t_map.gate_col = j;
 				t_map.gate_row = i;
-				return ;
+			}
+			if (map[i][j] == 'X')
+			{
+				t_map.enemy_col = j;
+				t_map.enemy_row = i;
 			}
 			j++;
 		}
@@ -53,7 +57,7 @@ char	**get_map(void)
 	t_map.map = malloc(sizeof(char *) * (t_map.map_line_count + 1));
 	if (!t_map.map)
 		return (NULL);
-	fd = open ("map.ber", O_RDONLY);
+	fd = open ("map_bonus.ber", O_RDONLY);
 	line = get_next_line(fd);
 	i = 0;
 	while (line)

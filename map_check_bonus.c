@@ -87,7 +87,10 @@ int	char_check11(char **map)
 			if (map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != 'C')
 			{
 				if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != '\n')
-					return (is_it_rectangular7(map) * 11);
+				{
+					if (map[i][j] != 'X')
+						return (is_it_rectangular7(map) * 11);
+				}
 			}
 			j++;
 		}
