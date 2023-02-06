@@ -61,7 +61,7 @@ void	shortest_line_func(char **map);
 int		ft_exit(int key, t_mlx *mlx);
 int		ft_movement(int key, t_mlx *mlx);
 void	put_img(t_mlx *mlx, char **map);
-void 	mlx_filler(t_mlx *mlx);
+void	mlx_filler(t_mlx *mlx);
 void	ft_putnbr(int n);
 void	ft_putstr(char *str);
 

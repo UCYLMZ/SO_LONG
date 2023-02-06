@@ -13,7 +13,7 @@ SOURCES_BONUS = main_bonus.c map_info_bonus.c utils_bonus.c			\
 				path_wall_check_bonus.c utils_free_bonus.c			\
 				utils_print_bonus.c mlx_handle_bonus.c				\
 				loop_animate_bonus.c coin_animator_bonus.c			\
-				player_movement_bonus.c
+				player_movement_bonus.c animate_checker.c
 
 CC = @gcc
 
@@ -24,9 +24,9 @@ OBJ_BONUS = $(SOURCES_BONUS:.c=.o)
 RM  = rm -rf
 
 $(NAME): $(OBJ)
-	gcc $(SOURCES) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	gcc  $(SOURCES) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 bonus:
-	gcc $(SOURCES_BONUS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME_BONUS)
+	gcc  $(SOURCES_BONUS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME_BONUS)
 
 clean:
 	$(RM) *.o $(NAME)

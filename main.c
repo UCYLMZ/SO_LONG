@@ -2,6 +2,8 @@
 
 int	main(void)
 {
+	t_mlx	*mlx;
+
 	map_info();
 	if (map_check())
 		return (1);
