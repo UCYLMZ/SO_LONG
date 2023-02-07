@@ -17,7 +17,9 @@ void	error_messager(int result)
 	if (result % 13 == 0)
 		ft_putstr("***The map must be surrounded by walls correctly.\n");
 	if (result % 17 == 0)
-		ft_putstr("***The map must contain at least one colloctable(C).\n");
+		ft_putstr("***The map must contain at least one collectible(C).\n");
+	if (t_map.enemy_count != 1)
+		ft_putstr("***The map must contain exactly one enemy(X).\n");
 }
 
 char	*ft_strdup(const char *s1)

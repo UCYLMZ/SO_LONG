@@ -1,4 +1,4 @@
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	player_check3(char **map)
 {
@@ -98,12 +98,11 @@ int	char_check11(char **map)
 	}
 	return (is_it_rectangular7(map));
 }
-
-int	map_check(void)
+#include <stdio.h>
+int	map_check_bonus(void)
 {	
 	int	result;
 	int	coin_info17;
-
 	shortest_line_func(t_map.map);
 	if (t_map.coin_count > 0)
 		coin_info17 = 1;

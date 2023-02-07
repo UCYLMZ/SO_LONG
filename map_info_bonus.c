@@ -38,6 +38,7 @@ void	gate_finder(char **map)
 			}
 			if (map[i][j] == 'X')
 			{
+				t_map.enemy_count++;
 				t_map.enemy_col = j;
 				t_map.enemy_row = i;
 			}
@@ -72,7 +73,7 @@ char	**get_map(void)
 	return (t_map.map);
 }
 
-void	map_info(void)
+void	map_info_bonus(void)
 {
 	int	i;
 	int	j;
@@ -94,8 +95,9 @@ void	map_info(void)
 				t_map.exit_col = j;
 				t_map.exit_row = i;
 			}
-			if (t_map.map[i][j++] == 'C')
+			else if (t_map.map[i][j] == 'C')
 				t_map.coin_count++;
+			j++;
 		}
 	}
 }

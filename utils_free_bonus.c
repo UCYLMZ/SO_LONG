@@ -10,11 +10,13 @@ void	map_free(char **map)
 		free (map[i]);
 		i++;
 	}
-	free(map);
+	free (map[i]);
+	free (map);
 }
 
 int	ft_exit(int key, t_mlx *mlx)
 {
 	map_free(t_map.map);
+	system("leaks so_long_bonus");
 	exit (0);
 }

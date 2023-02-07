@@ -16,6 +16,7 @@ struct		s_map
 	int		exit_row;
 	int		gate_col;
 	int		gate_row;
+	int		enemy_count;
 	int		enemy_col;
 	int		enemy_row;
 	int		coin_count;
@@ -85,8 +86,8 @@ typedef struct s_mlx
 	void	*init;
 }			t_mlx;
 
-int			map_check(void);
-void		map_info(void);
+int			map_check_bonus(void);
+void		map_info_bonus(void);
 int			wall_checker13(char **map);
 void		error_messager(int result);
 char		*ft_strdup(const char *s1);
@@ -106,4 +107,5 @@ void		coin_animator(t_mlx **mlx);
 void		exit_checker(t_mlx **mlx);
 int			player_movement(int key, t_mlx **mlx);
 void		coin_checker(t_mlx **mlx);
+void		enemy_animate(int a, t_mlx **mlx, char **map);
 #endif

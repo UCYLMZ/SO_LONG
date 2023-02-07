@@ -5,8 +5,8 @@ int	main(void)
 {
 	t_mlx	*mlx;
 
-	map_info();
-	if (map_check())
+	map_info_bonus();
+	if (map_check_bonus())
 		return (1);
 	mlx = malloc(sizeof(t_mlx));
 	if (!mlx)
