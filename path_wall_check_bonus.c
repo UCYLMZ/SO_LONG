@@ -1,4 +1,29 @@
 #include "so_long_bonus.h"
+#include <stdio.h>
+
+void	enemy_way_check(char **map, int c, int r)
+{
+	int	h;
+	int	v;
+
+	h = 0;
+	while (map[r][(c++) + 1] == '0')
+		h++;
+	c = t_map.enemy_col;
+	while (map[r][(c--) - 1] == '0')
+		h++;
+	c = t_map.enemy_col;
+	v = 0;
+	while (map[(r++) + 1][c] == '0')
+		v++;
+	r = t_map.enemy_row;
+	while (map[(r--) - 1][c] == '0')
+		v++;
+	if (v >= h)
+		t_map.enemy_way = 'v';
+	else
+		t_map.enemy_way = 'h';
+}
 
 int	side_wall_check(char **map)
 {
@@ -51,13 +76,13 @@ int	wall_checker13(char **map)
 void	path_recursive(char **map, int c, int r)
 {
 	map[r][c] = '*';
-	if (map[r + 1][c] != '1' && map[r + 1][c] != '*')
+	if (map[r + 1][c] != '1' && map[r + 1][c] != '*' && map[r + 1][c] != 'X')
 		path_recursive(map, c, r + 1);
-	if (map[r - 1][c] != '1' && map[r - 1][c] != '*')
+	if (map[r - 1][c] != '1' && map[r - 1][c] != '*' && map[r - 1][c] != 'X')
 		path_recursive(map, c, r - 1);
-	if (map[r][c + 1] != '1' && map[r][c + 1] != '*')
+	if (map[r][c + 1] != '1' && map[r][c + 1] != '*' && map[r][c + 1] != 'X')
 		path_recursive(map, c + 1, r);
-	if (map[r][c - 1] != '1' && map[r][c - 1] != '*')
+	if (map[r][c - 1] != '1' && map[r][c - 1] != '*' && map[r][c - 1] != 'X')
 		path_recursive(map, c - 1, r);
 }
 
@@ -76,7 +101,7 @@ int	path_checker(void)
 		while (map[i][++j])
 		{
 			if (map[i][j] != '*' && map[i][j] != '\n' &&
-			map[i][j] != '1' && map[i][j] != '0')
+			map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'X')
 			{
 				map_free (map);
 				return (2);

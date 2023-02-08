@@ -17,6 +17,6 @@ void	map_free(char **map)
 int	ft_exit(int key, t_mlx *mlx)
 {
 	map_free(t_map.map);
-	system("leaks so_long_bonus");
+	//system("leaks so_long_bonus");
 	exit (0);
 }

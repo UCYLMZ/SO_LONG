@@ -100,6 +100,8 @@ void	mlx_initializer(t_mlx *mlx)
 	mlx->win = mlx_new_window(mlx->init, l, c, "so_long_bonus");
 	win_initializer(mlx);
 	color = (int)4294967295;
+	enemy_way_check(t_map.map, t_map.enemy_col, t_map.enemy_row);
+	printf("%c\n", t_map.enemy_way);
 	mlx_string_put(mlx->init, mlx->win, 35, 67, color, "step: 0");
 	mlx_hook(mlx->win, 17, 0, &ft_exit, NULL);
 	mlx_hook(mlx->win, 2, 0, &player_movement, (void *)&mlx);

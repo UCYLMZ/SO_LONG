@@ -19,6 +19,8 @@ struct		s_map
 	int		enemy_count;
 	int		enemy_col;
 	int		enemy_row;
+	char	enemy_way;
+	int		enemy_flag;
 	int		coin_count;
 	int		current_coin;
 }			t_map;
@@ -102,6 +104,7 @@ void		put_img(char c, int x, int y, t_mlx *mlx);
 void		mlx_initializer(t_mlx *mlx);
 void		ft_putnbr(int n);
 void		ft_putstr(char *str);
+void		enemy_way_check(char **map, int col, int row);
 int			loop_animator(t_mlx **mlx);
 void		coin_animator(t_mlx **mlx);
 void		exit_checker(t_mlx **mlx);
