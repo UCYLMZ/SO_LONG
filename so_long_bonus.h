@@ -53,6 +53,9 @@ typedef struct s_mlx
 	char	*e2_p;
 	int		enemy_anim_count;
 
+	char	*go_p;
+	char	*yw_p;
+
 	char	*f;
 	char	*w;
 	char	*s;
@@ -60,8 +63,6 @@ typedef struct s_mlx
 	char	*p;
 	char	*pr;
 	char	*pl;
-	char	*prr;
-	char	*plr;
 
 	char	*c1;
 	char	*c2;
@@ -80,11 +81,18 @@ typedef struct s_mlx
 	char	*e1;
 	char	*e2;
 
+	char	*go;
+	char	*yw;
+
 	int		a;
 	int		b;
 
 	int		x;
 	int		y;
+	int		xgo;
+	int		ygo;
+	int		xyw;
+	int		yyw;
 
 	void	*win;
 	void	*init;

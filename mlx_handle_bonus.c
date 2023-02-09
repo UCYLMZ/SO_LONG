@@ -63,6 +63,8 @@ void	xpm_to_image(t_mlx *mlx)
 	mlx->e = mlx_xpm_file_to_image(mlx->init, mlx->e1_p, &mlx->x, &mlx->y);
 	mlx->e1 = mlx_xpm_file_to_image(mlx->init, mlx->e1_p, &mlx->x, &mlx->y);
 	mlx->e2 = mlx_xpm_file_to_image(mlx->init, mlx->e2_p, &mlx->x, &mlx->y);
+	mlx->go = mlx_xpm_file_to_image(mlx->init, mlx->go_p, &mlx->xgo, &mlx->ygo);
+	mlx->yw = mlx_xpm_file_to_image(mlx->init, mlx->yw_p, &mlx->xyw, &mlx->yyw);
 }
 
 void	xpm_img_path(t_mlx *mlx)
@@ -84,6 +86,8 @@ void	xpm_img_path(t_mlx *mlx)
 	mlx->m_p = "./img_bonus/m.xpm";
 	mlx->e1_p = "./img_bonus/e1.xpm";
 	mlx->e2_p = "./img_bonus/e2.xpm";
+	mlx->go_p = "./img_bonus/go.xpm";
+	mlx->yw_p = "./img_bonus/yw.xpm";
 	xpm_to_image(mlx);
 }
 
@@ -105,6 +109,9 @@ void	mlx_initializer(t_mlx *mlx)
 	mlx_string_put(mlx->init, mlx->win, 35, 67, t_map.color, "step: 0");
 	mlx_hook(mlx->win, 17, 0, &ft_exit, NULL);
 	mlx_hook(mlx->win, 2, 0, &player_movement, (void *)&mlx);
+	printf("shortest line:%d\n", t_map.line_length);
+	printf("line count line:%d\n", t_map.map_line_count);
+	printf("enemy way:%c\n", t_map.enemy_way);
 	mlx_loop_hook(mlx->init, &loop_animator, (void *)&mlx);
 	mlx_loop(mlx->init);
 }
