@@ -14,7 +14,7 @@ SOURCES_BONUS = main_bonus.c map_info_bonus.c utils_bonus.c			\
 				utils_print_bonus.c mlx_handle_bonus.c				\
 				loop_animate_bonus.c coin_animator_bonus.c			\
 				player_movement_bonus.c animate_checker.c			\
-				enemy_animate_bonus.c
+				enemy_animate_bonus.c utils_animate_bonus.c
 
 CC = @gcc
 

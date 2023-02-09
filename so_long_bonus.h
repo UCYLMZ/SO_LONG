@@ -23,6 +23,7 @@ struct		s_map
 	int		enemy_flag;
 	int		coin_count;
 	int		current_coin;
+	int		color;
 }			t_map;
 
 typedef struct s_mlx
@@ -50,6 +51,7 @@ typedef struct s_mlx
 
 	char	*e1_p;
 	char	*e2_p;
+	int		enemy_anim_count;
 
 	char	*f;
 	char	*w;
@@ -111,4 +113,6 @@ void		exit_checker(t_mlx **mlx);
 int			player_movement(int key, t_mlx **mlx);
 void		coin_checker(t_mlx **mlx);
 void		enemy_animate(int a, t_mlx **mlx, char **map);
+void		way_setter(void);
+void		enemy_animator(t_mlx *mlx);
 #endif

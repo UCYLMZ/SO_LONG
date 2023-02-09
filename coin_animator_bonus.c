@@ -40,7 +40,7 @@ void	coin_animator(t_mlx **mlx)
 	{
 		(*mlx)->coin_anim_count = 0;
 		coin_finder(1, *mlx);
-		enemy_animate(2, mlx, t_map.map);
+		//enemy_animate(2, mlx, t_map.map);
 	}
 	else if ((*mlx)->coin_anim_count == 10000
 		|| (*mlx)->coin_anim_count == 2000)
@@ -50,7 +50,7 @@ void	coin_animator(t_mlx **mlx)
 	else if ((*mlx)->coin_anim_count == 6000)
 	{
 		coin_finder(4, *mlx);
-		enemy_animate(1, mlx, t_map.map);
+		//enemy_animate(1, mlx, t_map.map);
 	}
 	(*mlx)->coin_anim_count++;
 }

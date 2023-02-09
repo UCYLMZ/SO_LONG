@@ -91,7 +91,6 @@ void	mlx_initializer(t_mlx *mlx)
 {
 	int	l;
 	int	c;
-	int	color;
 
 	l = t_map.line_length * 128;
 	c = t_map.map_line_count * 128;
@@ -99,10 +98,11 @@ void	mlx_initializer(t_mlx *mlx)
 	xpm_img_path(mlx);
 	mlx->win = mlx_new_window(mlx->init, l, c, "so_long_bonus");
 	win_initializer(mlx);
-	color = (int)4294967295;
+	t_map.color = (int)4294967295;
 	enemy_way_check(t_map.map, t_map.enemy_col, t_map.enemy_row);
-	printf("%c\n", t_map.enemy_way);
-	mlx_string_put(mlx->init, mlx->win, 35, 67, color, "step: 0");
+	t_map.map[t_map.plyr_row][t_map.plyr_col] = '0';
+	t_map.map[t_map.enemy_row][t_map.enemy_col] = '0';
+	mlx_string_put(mlx->init, mlx->win, 35, 67, t_map.color, "step: 0");
 	mlx_hook(mlx->win, 17, 0, &ft_exit, NULL);
 	mlx_hook(mlx->win, 2, 0, &player_movement, (void *)&mlx);
 	mlx_loop_hook(mlx->init, &loop_animator, (void *)&mlx);

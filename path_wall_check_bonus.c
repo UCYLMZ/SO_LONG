@@ -1,30 +1,6 @@
 #include "so_long_bonus.h"
 #include <stdio.h>
 
-void	enemy_way_check(char **map, int c, int r)
-{
-	int	h;
-	int	v;
-
-	h = 0;
-	while (map[r][(c++) + 1] == '0')
-		h++;
-	c = t_map.enemy_col;
-	while (map[r][(c--) - 1] == '0')
-		h++;
-	c = t_map.enemy_col;
-	v = 0;
-	while (map[(r++) + 1][c] == '0')
-		v++;
-	r = t_map.enemy_row;
-	while (map[(r--) - 1][c] == '0')
-		v++;
-	if (v >= h)
-		t_map.enemy_way = 'v';
-	else
-		t_map.enemy_way = 'h';
-}
-
 int	side_wall_check(char **map)
 {
 	int	i;

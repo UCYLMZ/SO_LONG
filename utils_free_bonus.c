@@ -16,7 +16,13 @@ void	map_free(char **map)
 
 int	ft_exit(int key, t_mlx *mlx)
 {
+	mlx_clear_window(mlx->init, mlx->win);
+	// if (key == 404)
+	// 	lose window();
+	// else if (key == 1001)
+	// 	win window();
 	map_free(t_map.map);
-	//system("leaks so_long_bonus");
+	free(mlx);
+	system("leaks so_long_bonus");
 	exit (0);
 }

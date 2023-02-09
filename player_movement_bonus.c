@@ -5,8 +5,6 @@ void	move_left(int *step, t_mlx **mlx)
 	if (t_map.map[t_map.plyr_row][t_map.plyr_col - 1] != '1')
 	{
 		(*step)++;
-		if (t_map.map[t_map.plyr_row][t_map.plyr_col - 1] == 'X')
-			ft_exit(404, (*mlx));
 		if (t_map.map[t_map.plyr_row][t_map.plyr_col] == 'E')
 			put_img('E', t_map.plyr_col, t_map.plyr_row, *mlx);
 		else
@@ -33,8 +31,6 @@ void	move_right(int *step, t_mlx **mlx)
 	if (t_map.map[t_map.plyr_row][t_map.plyr_col + 1] != '1')
 	{
 		(*step)++;
-		if (t_map.map[t_map.plyr_row][t_map.plyr_col + 1] == 'X')
-			ft_exit(404, (*mlx));
 		if (t_map.map[t_map.plyr_row][t_map.plyr_col] == 'E')
 			put_img('E', t_map.plyr_col, t_map.plyr_row, *mlx);
 		else
@@ -62,8 +58,6 @@ void	move_up(int *step, t_mlx **mlx)
 	if (t_map.map[t_map.plyr_row - 1][t_map.plyr_col] != '1')
 	{
 		(*step)++;
-		if (t_map.map[t_map.plyr_row - 1][t_map.plyr_col] == 'X')
-			ft_exit(404, (*mlx));
 		if (t_map.map[t_map.plyr_row][t_map.plyr_col] == 'E')
 			put_img('E', t_map.plyr_col, t_map.plyr_row, *mlx);
 		else
@@ -90,8 +84,6 @@ void	move_down(int *step, t_mlx **mlx)
 	if (t_map.map[t_map.plyr_row + 1][t_map.plyr_col] != '1')
 	{
 		(*step)++;
-		if (t_map.map[t_map.plyr_row + 1][t_map.plyr_col] == 'X')
-			ft_exit(404, (*mlx));
 		if (t_map.map[t_map.plyr_row][t_map.plyr_col] == 'E')
 			put_img('E', t_map.plyr_col, t_map.plyr_row, *mlx);
 		else
@@ -115,7 +107,7 @@ void	move_down(int *step, t_mlx **mlx)
 int	player_movement(int key, t_mlx **mlx)
 {
 	static int	step;
-	int			color;
+	char		*step_ptr;
 
 	if (key != 0 && key != 2 && key != 1 && key != 13 && key != 53)
 		return (1);
@@ -130,8 +122,9 @@ int	player_movement(int key, t_mlx **mlx)
 	else if (key == 53)
 		ft_exit(17, *mlx);
 	put_img('S', 0, 0, *mlx);
-	color = (int)4294967295;
-	mlx_string_put((*mlx)->init, (*mlx)->win, 35, 67, color, "step: ");
-	mlx_string_put((*mlx)->init, (*mlx)->win, 75, 67, color, ft_itoa(step));
+	mlx_string_put((*mlx)->init, (*mlx)->win, 35, 67, t_map.color, "step: ");
+	step_ptr = ft_itoa(step);
+	mlx_string_put((*mlx)->init, (*mlx)->win, 75, 67, t_map.color, step_ptr);
+	free(step_ptr);
 	return (0);
 }
