@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player_movement_bonus.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/11 18:36:40 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/02/11 18:39:21 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 void	move_left(int *step, t_mlx **mlx)
@@ -75,7 +87,6 @@ void	move_up(int *step, t_mlx **mlx)
 			coin_checker(mlx);
 		}
 		put_img('P', t_map.plyr_col, t_map.plyr_row, *mlx);
-
 	}
 }
 

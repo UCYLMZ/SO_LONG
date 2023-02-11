@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   coin_animator_bonus.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/11 18:35:19 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/02/11 18:40:29 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 void	coin_printer(int a, int j, int i, t_mlx *mlx)
@@ -40,7 +52,6 @@ void	coin_animator(t_mlx **mlx)
 	{
 		(*mlx)->coin_anim_count = 0;
 		coin_finder(1, *mlx);
-		//enemy_animate(2, mlx, t_map.map);
 	}
 	else if ((*mlx)->coin_anim_count == 10000
 		|| (*mlx)->coin_anim_count == 2000)
@@ -48,9 +59,6 @@ void	coin_animator(t_mlx **mlx)
 	else if ((*mlx)->coin_anim_count == 8000 || (*mlx)->coin_anim_count == 4000)
 		coin_finder(3, *mlx);
 	else if ((*mlx)->coin_anim_count == 6000)
-	{
 		coin_finder(4, *mlx);
-		//enemy_animate(1, mlx, t_map.map);
-	}
 	(*mlx)->coin_anim_count++;
 }

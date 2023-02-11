@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/11 18:36:52 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/02/11 18:36:53 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # include "SRC/GET_NEXT_LINE/get_next_line.h"
 # include <fcntl.h>
-# include "./mlx/mlx.h"
+# include "./SRC/mlx/mlx.h"
 
 struct	s_map
 {

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/11 18:36:45 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/02/11 18:36:46 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
-# include "./mlx/mlx.h"
+# include "./SRC/mlx/mlx.h"
 # include "SRC/GET_NEXT_LINE/get_next_line.h"
 # include <fcntl.h>
 

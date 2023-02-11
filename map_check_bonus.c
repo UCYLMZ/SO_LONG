@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_check_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/11 18:34:36 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/02/11 18:34:37 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
 int	player_check3(char **map)
@@ -98,11 +110,12 @@ int	char_check11(char **map)
 	}
 	return (is_it_rectangular7(map));
 }
-#include <stdio.h>
+
 int	map_check_bonus(void)
 {	
 	int	result;
 	int	coin_info17;
+
 	shortest_line_func(t_map.map);
 	if (t_map.coin_count > 0)
 		coin_info17 = 1;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_textures.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/11 18:37:19 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/02/11 18:38:49 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	exit_checker(t_mlx *mlx)
@@ -35,7 +47,8 @@ void	img_printer(t_mlx *mlx, char c)
 	if (c == 'P')
 	{
 		mlx_put_image_to_window(mlx->init, mlx->win, mlx->p, mlx->x1, mlx->y1);
-		if (t_map.gate_col == t_map.plyr_col && t_map.gate_row == t_map.plyr_row)
+		if (t_map.gate_col == t_map.plyr_col
+			&& t_map.gate_row == t_map.plyr_row)
 			exit_checker(mlx);
 	}
 }

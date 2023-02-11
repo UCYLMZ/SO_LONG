@@ -1,7 +1,10 @@
-
 NAME = so_long
 
 NAME_BONUS = so_long_bonus
+
+MLX = ./SRC/mlx/libmlx.a
+
+GNL = ./SRC/GET_NEXT_LINE/libftgnl.a
 
 SOURCES = main.c path_wall_check.c utils.c map_check.c \
 		  map_info.c ./SRC/GET_NEXT_LINE/libftgnl.a	   \
@@ -16,24 +19,33 @@ SOURCES_BONUS = main_bonus.c map_info_bonus.c utils_bonus.c			\
 				player_movement_bonus.c animate_checker.c			\
 				enemy_animate_bonus.c utils_animate_bonus.c
 
-CC = @gcc
+CC = gcc
+CCFLAGS = -Wall -Wextra -Werror
+MLXFLAGS = -framework OpenGL -framework AppKit -L./SRC/mlx -lmlx 
 
-OBJ = $(SOURCES:.c=.o)
+all: $(MLX) $(GNL) $(NAME) bonus
 
-OBJ_BONUS = $(SOURCES_BONUS:.c=.o)
+bonus: $(MLX) $(GNL) $(SOURCES_BONUS)
+		@gcc $(CCFLAGS) $(MLXFLAGS) $(GNL) $(SOURCES_BONUS) -o $(NAME_BONUS)
 
-RM  = rm -rf
+$(NAME): $(SOURCES) $(MLX) $(GNL)
+		@gcc $(CCFLAGS) $(MLXFLAGS) $(GNL) $(SOURCES) -o $(NAME)
 
-$(NAME): $(OBJ)
-	gcc  $(SOURCES) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-bonus:
-	gcc  $(SOURCES_BONUS) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME_BONUS)
+$(MLX):
+	@make -C ./SRC/mlx
+$(GNL):
+	@make -C ./SRC/GET_NEXT_LINE
 
 clean:
-	$(RM) *.o $(NAME)
+	@rm -rf ./SRC/mlx/*.o
+	@rm -rf ./SRC/GET_NEXT_LINE/*.o
+	@rm -rf ./SRC/mlx/*.a
+	@rm -rf ./SRC/GET_NEXT_LINE/*.a
 
-fclean:
-	$(RM) *.o $(NAME) &(NAME_BONUS)
-re:
-	make clean
-	make
+fclean: clean
+	@rm -rf $(NAME)
+	@rm -rf $(NAME_BONUS)
+
+re: fclean all
+
+.PHONY: all bonus clean fclean re
