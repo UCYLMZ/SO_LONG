@@ -6,7 +6,7 @@
 /*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:37:02 by uyilmaz           #+#    #+#             */
-/*   Updated: 2023/02/11 18:37:03 by uyilmaz          ###   ########.fr       */
+/*   Updated: 2023/02/13 14:43:52 by uyilmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	map_free(char **map)
 int	ft_exit(int key, t_mlx *mlx)
 {
 	(void)key;
-	mlx_destroy_window(mlx->init, mlx->win);
-	map_free(t_map.map);
-	free(mlx);
+	(void)mlx;
 	exit (0);
 }

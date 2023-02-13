@@ -23,13 +23,13 @@ CC = gcc
 CCFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -framework OpenGL -framework AppKit -L./SRC/mlx -lmlx 
 
+$(NAME): $(SOURCES) $(MLX) $(GNL)
+		@gcc $(CCFLAGS) $(MLXFLAGS) $(GNL) $(SOURCES) -o $(NAME)
+
 all: $(MLX) $(GNL) $(NAME) bonus
 
 bonus: $(MLX) $(GNL) $(SOURCES_BONUS)
 		@gcc $(CCFLAGS) $(MLXFLAGS) $(GNL) $(SOURCES_BONUS) -o $(NAME_BONUS)
-
-$(NAME): $(SOURCES) $(MLX) $(GNL)
-		@gcc $(CCFLAGS) $(MLXFLAGS) $(GNL) $(SOURCES) -o $(NAME)
 
 $(MLX):
 	@make -C ./SRC/mlx
@@ -39,10 +39,10 @@ $(GNL):
 clean:
 	@rm -rf ./SRC/mlx/*.o
 	@rm -rf ./SRC/GET_NEXT_LINE/*.o
-	@rm -rf ./SRC/mlx/*.a
-	@rm -rf ./SRC/GET_NEXT_LINE/*.a
 
 fclean: clean
+	@rm -rf ./SRC/mlx/*.a
+	@rm -rf ./SRC/GET_NEXT_LINE/*.a
 	@rm -rf $(NAME)
 	@rm -rf $(NAME_BONUS)
 
